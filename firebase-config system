@@ -1,0 +1,20 @@
+setp-1: 
+  
+VITE_apiKey=value------------value
+VITE_authDomain=value------------value
+VITE_projectId=value------------value
+VITE_storageBucket=value------------value
+VITE_messagingSenderId=value------------value
+VITE_appId=value------------value
+
+  
+stpe-2:
+  
+const firebaseConfig = {
+  apiKey: import.meta.env.VITE_apiKey,
+  authDomain: import.meta.env.VITE_authDomain,
+  projectId: import.meta.env.VITE_projectId,
+  storageBucket: import.meta.env.VITE_storageBucket,
+  messagingSenderId: import.meta.env.VITE_messagingSenderId,
+  appId: import.meta.env.VITE_appId
+};
