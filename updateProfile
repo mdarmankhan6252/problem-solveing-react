@@ -1,0 +1,9 @@
+createUser(email, password)
+      .then(result => {
+      console.log(result.user)
+      UpdateUserProfile(name)
+      setUser({...user, displayName : name})
+   })
+      .catch(error => {
+      console.log(error);
+ })
