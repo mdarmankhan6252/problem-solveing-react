@@ -3,6 +3,7 @@ import logo from '../assets/logo.png'
 import { FaUser } from 'react-icons/fa';
 import { useEffect, useState } from 'react';
 import { RiMenu2Fill } from "react-icons/ri";
+import { IoCloseOutline } from "react-icons/io5";
 
 const Nav = () => {
    const [scrollPosition, setScrollPosition] = useState(0)
@@ -51,8 +52,8 @@ const Nav = () => {
             <NavLink to='/premiumArticles'>Premium Articles</NavLink> */}
             </ul>
 
-            <div onClick={() => setMenu(!menu)} className='text-3xl cursor-pointer sm:hidden'>
-               <RiMenu2Fill />
+            <div onClick={() => setMenu(!menu)} className='text-3xl cursor-pointer sm:hidden '>
+               { menu ? <IoCloseOutline /> : <RiMenu2Fill /> }
             </div>
 
             <div className='border-2 border-transparent ring-2 ring-lime-500 rounded-full p-1.5'>
