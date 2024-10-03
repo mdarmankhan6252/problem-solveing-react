@@ -1,0 +1,22 @@
+setp-1: inset this in the main.jsx file.
+
+import {
+  QueryClient,
+  QueryClientProvider,
+} from '@tanstack/react-query'
+
+const queryClient = new QueryClient()
+
+
+setp-2: use it where you want to get data from sever side.
+
+const axiosSecure = useAxiosSecure()
+   const {data : news = []} = useQuery({
+      queryKey:['cart'],
+      queryFn: async() =>{
+         const res = await axiosSecure.get('/news')
+         return res.data
+      }
+   })
+
+   console.log(news);
