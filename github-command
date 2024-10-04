@@ -1,0 +1,11 @@
+1. for checking branch
+=> git branch
+
+2. for changing branch
+=> git checkout [brnach-name]
+
+3. for deleting a branch
+=> git branch -d [branch-name]
+
+4. for creating and switching at a time 
+=> git checkout =b [branch-name]
