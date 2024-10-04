@@ -13,7 +13,7 @@ step-2: create vercel.json file for configuring server
    "builds":[
       {
          "src":"./index.js",
-         "user":"@vercel/node"
+         "use":"@vercel/node"
       }
    ],
    "routes":[
