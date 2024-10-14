@@ -1,4 +1,4 @@
-setp: 1 --->
+step: 1 --->
 1. go to the following website => ||  https://github.com/auth0/node-jsonwebtoken   || and install it. 
 2. use it in your backend of express project. ==> const jwt = require('jsonwebtoken')
 3. write the following code in bakend: 
@@ -12,7 +12,7 @@ setp: 1 --->
          res.send(token)
           })
 
-setp: 2 --->
+step: 2 --->
 1. come to the client side and go to login page[where you will get the result from firebase] and add following code: 
   axios.post('http://localhost:5000/jwt', user)
             .then(res =>{
@@ -21,10 +21,10 @@ setp: 2 --->
 !! Don't foreget to install axios. To install axios ==> npm install axios   || go to axios website ==> https://axios-http.com/docs/intro
 
 
-setp: 3 --->
+step: 3 --->
 install in the backend cookie-parser  ||  To install cookie-parser use the command ==> npm install cookie-parser  || go to ==> https://expressjs.com/en/resources/middleware/cookie-parser.html
 
-setp: 4 --->
+step: 4 --->
 Now it's time to use cookie, to use it follow the process:
   process-1: 
             res
@@ -39,7 +39,13 @@ Note: You will use it where you used this ===>  app.post('/jwt', async(req, res)
   
 }
 
+step: 5 --->  To set the token in browser cookie, you must use it in cors.
+app.use(cors({
+   origin:['http://localhost:5173'],
+   credentials:true
+}))
 
+!!Don't forget to remove 'http://localhost:5173' this one when your website will go for production.
 
 
 
