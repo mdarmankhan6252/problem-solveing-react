@@ -30,8 +30,7 @@ Now it's time to use cookie, to use it follow the process:
             res
             .cookie('token', token, {
                httpOnly: true,
-               secure: false,
-               sameSite: 'none'
+               secure: false
             })
             .send({ success: true })
 
@@ -50,6 +49,15 @@ process - 2: use this object in client side in axios where you are requisting yo
 
 !!Don't forget to remove 'http://localhost:5173' this one when your website will go for production.
 
+
+step: 6 --->
+where you are getting a specific data i mean [for every user get a different data] there you must use  => withCredentials:true <= 
+example : 
+      axios.get(url, {withCredentials:true})
+      .then(res =>{
+         setCheckouts(res.data)
+      })
+   }, [url])
 
 
 
