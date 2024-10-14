@@ -59,7 +59,9 @@ example :
       })
    }, [url])
 
-
+step: 6 ---> you must use cooke-parser => at the backend
+         process - 1 : like: => const cookieParser = require('cookie-parser');
+         process - 1 : like: => app.use(cookieParser())
 
 
 
