@@ -40,10 +40,13 @@ Note: You will use it where you used this ===>  app.post('/jwt', async(req, res)
 }
 
 step: 5 --->  To set the token in browser cookie, you must use it in cors.
-app.use(cors({
-   origin:['http://localhost:5173'],
-   credentials:true
-}))
+process - 1:
+         app.use(cors({
+            origin:['http://localhost:5173'],
+            credentials:true
+         }))
+process - 2: use this object in client side in axios where you are requisting your post method.
+{withCredentials:true}
 
 !!Don't forget to remove 'http://localhost:5173' this one when your website will go for production.
 
