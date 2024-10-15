@@ -64,8 +64,29 @@ step: 6 ---> you must use cooke-parser => at the backend
          process - 1 : like: => app.use(cookieParser())
 
 
+final stage ::::::
+step: 6 ---> useVerifyToken and verify it. 
 
+const verifyToken = async(req, res, next) =>{
+   const token = req.cookies?.token;
+   console.log('value of token in middleware :', token);
+   if(!token){
+      return res.status(401).send({message: 'not authorized'})
+   }
+   jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (error, decoded) =>{
+      //error
+      if(error){
+         console.log(error);
+         return res.status(401).send({message:'not authorized'})
+      }
+      console.log('value in the token', decoded);
+      req.user = decoded;
+      next()
+   })
 
+}
+
+!!! Don't forget to use verifyToken which data you want to secure. mind it it will use as a middleware.
 
 
 
