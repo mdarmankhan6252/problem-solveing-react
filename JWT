@@ -87,6 +87,12 @@ const verifyToken = async(req, res, next) =>{
 }
 
 !!! Don't forget to use verifyToken which data you want to secure. mind it it will use as a middleware.
+--------------------
+Don't foreget to use it where you want to data
+
+  if(req.query.email !== req.user.email){
+            return res.send(403).send({message: 'forbidden access'})
+ }
 
 
 
