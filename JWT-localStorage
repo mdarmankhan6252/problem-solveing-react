@@ -1,1 +1,78 @@
+step - 1: install jwt and add the following code in the backend.
+
+app.post('/jwt', async (req, res) => {
+         const user = req.body;
+         // console.log(user)
+         const token = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET, {
+            expiresIn: '1h'
+         })
+         res.send({ token })
+      })
+
+
+step - 2: come to the client side (AuthProvider file) and the following code : 
+
+if(currentUser){
+        //get token and store client
+        const userInfo = {email : currentUser}
+        axiosPublic.post('/jwt', userInfo)
+        .then(res =>{
+          if(res.data.token){
+            localStorage.setItem('token', res.data.token)
+          }
+        })
+
+      }else{
+        localStorage.removeItem('token')
+      }
+
+step - 3 : now come to server side and create a  middleware and use it. (here is verifyed)
+
+      const verifyToken = (req, res, next) =>{
+         console.log('inside verify token',req.headers);
+         if(!req.headers.authorization){
+            return res.status(401).send({message : 'Forbidden access'})
+         }
+         const token = req.headers.authorization.split(' ')[1]
+         jwt.verify(token,process.env.ACCESS_TOKEN_SECRET, (err, decoded) =>{
+            if(err){
+               return res.status(401).send({message : 'Forbidden access'})
+            }
+            req.decoded = decoded;
+            next()
+         })
+
+      }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
